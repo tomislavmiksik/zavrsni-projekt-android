@@ -5,7 +5,7 @@ import androidx.room.*
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.TeamEntity
 
 @Dao
-interface TeamDao {
+interface TeamDAO {
     @Query("SELECT * FROM TeamEntity")
     fun getAll(): LiveData<List<TeamEntity>>
 

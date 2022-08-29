@@ -3,13 +3,13 @@ package hr.tvz.android.zavrsniprojektmiksik.database.repos
 import android.app.Application
 import androidx.lifecycle.LiveData
 import hr.tvz.android.zavrsniprojektmiksik.database.AppDatabase
-import hr.tvz.android.zavrsniprojektmiksik.database.daos.TeamDao
+import hr.tvz.android.zavrsniprojektmiksik.database.daos.TeamDAO
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.TeamEntity
 import subscribeOnBackground
 
 class TeamRepo (application: Application) {
 
-    private var teamDao: TeamDao
+    private var teamDao: TeamDAO
     private var allTeams: LiveData<List<TeamEntity>>
 
 

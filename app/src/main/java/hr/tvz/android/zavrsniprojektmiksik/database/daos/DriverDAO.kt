@@ -5,7 +5,7 @@ import androidx.room.*
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 
 @Dao
-interface DriverDao {
+interface DriverDAO {
     @Query("SELECT * FROM DriverEntity")
     fun getAll(): LiveData<List<DriverEntity>>
 

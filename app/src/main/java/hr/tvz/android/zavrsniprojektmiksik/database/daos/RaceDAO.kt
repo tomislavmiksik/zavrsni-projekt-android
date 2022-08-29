@@ -6,7 +6,7 @@ import hr.tvz.android.zavrsniprojektmiksik.database.enitites.RaceEntity
 import hr.tvz.android.zavrsniprojektmiksik.models.Race
 
 @Dao
-interface RaceDao {
+interface RaceDAO {
     @Query("SELECT * FROM RaceEntity")
     fun getAll(): LiveData<List<RaceEntity>>
 

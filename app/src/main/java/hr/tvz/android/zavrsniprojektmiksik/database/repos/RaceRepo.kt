@@ -3,13 +3,13 @@ package hr.tvz.android.zavrsniprojektmiksik.database.repos
 import android.app.Application
 import androidx.lifecycle.LiveData
 import hr.tvz.android.zavrsniprojektmiksik.database.AppDatabase
-import hr.tvz.android.zavrsniprojektmiksik.database.daos.RaceDao
+import hr.tvz.android.zavrsniprojektmiksik.database.daos.RaceDAO
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.RaceEntity
 import subscribeOnBackground
 
 class RaceRepo (application: Application){
 
-    private var raceDao: RaceDao
+    private var raceDao: RaceDAO
     private var allRaces: LiveData<List<RaceEntity>>
 
 

@@ -3,13 +3,13 @@ package hr.tvz.android.zavrsniprojektmiksik.database.repos
 import android.app.Application
 import androidx.lifecycle.LiveData
 import hr.tvz.android.zavrsniprojektmiksik.database.AppDatabase
-import hr.tvz.android.zavrsniprojektmiksik.database.daos.DriverDao
+import hr.tvz.android.zavrsniprojektmiksik.database.daos.DriverDAO
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 import subscribeOnBackground
 
 class DriverRepo (application: Application) {
 
-    private var driverDao: DriverDao
+    private var driverDao: DriverDAO
     private var allDrivers: LiveData<List<DriverEntity>>
 
 
