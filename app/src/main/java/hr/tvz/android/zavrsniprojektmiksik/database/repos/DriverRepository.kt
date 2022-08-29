@@ -7,7 +7,7 @@ import hr.tvz.android.zavrsniprojektmiksik.database.daos.DriverDAO
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 import subscribeOnBackground
 
-class DriverRepo (application: Application) {
+class DriverRepository (application: Application) {
 
     private var driverDao: DriverDAO
     private var allDrivers: LiveData<List<DriverEntity>>

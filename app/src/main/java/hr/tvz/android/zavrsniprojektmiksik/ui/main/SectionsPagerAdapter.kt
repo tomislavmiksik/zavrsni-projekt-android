@@ -5,20 +5,28 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import hr.tvz.android.zavrsniprojektmiksik.R
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.DriversFragment
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.RacesFragment
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.TeamsFragment
 
 private val TAB_TITLES = arrayOf(
-    R.string.tab_text_1,
-    R.string.tab_text_2,
-    R.string.tab_text_3,
+    R.string.tab_drivers,
+    R.string.tab_races,
+    R.string.tab_teams,
 )
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        return PlaceholderFragment.newInstance(position + 1)
+        when (position){
+            0 -> return DriversFragment()
+            1 -> return RacesFragment()
+            2 -> return TeamsFragment()
+            else -> return DriversFragment()
+        }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return context.resources.getString(TAB_TITLES[position])
     }
 

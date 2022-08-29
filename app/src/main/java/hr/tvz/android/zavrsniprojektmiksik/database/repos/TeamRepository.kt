@@ -7,7 +7,7 @@ import hr.tvz.android.zavrsniprojektmiksik.database.daos.TeamDAO
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.TeamEntity
 import subscribeOnBackground
 
-class TeamRepo (application: Application) {
+class TeamRepository (application: Application) {
 
     private var teamDao: TeamDAO
     private var allTeams: LiveData<List<TeamEntity>>

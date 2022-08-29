@@ -15,10 +15,10 @@ interface DriverDAO {
     @Query("SELECT * FROM DriverEntity WHERE driver_name = :name")
     fun getByName(name: String): DriverEntity
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(driver: DriverEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(driver: List<DriverEntity>)
 
     @Delete

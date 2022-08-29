@@ -15,10 +15,10 @@ interface TeamDAO {
     @Query("SELECT * FROM TeamEntity WHERE team_name = :name")
     fun getByName(name: String): TeamEntity
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(team: TeamEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(team: List<TeamEntity>)
 
     @Delete

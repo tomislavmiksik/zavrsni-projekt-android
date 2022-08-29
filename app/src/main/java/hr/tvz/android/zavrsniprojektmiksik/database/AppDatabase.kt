@@ -28,9 +28,11 @@ abstract class AppDatabase : RoomDatabase() {
                     ctx.applicationContext, AppDatabase::class.java,
                     "app_database"
                 )
+                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build()
+
 
             return instance!!
 

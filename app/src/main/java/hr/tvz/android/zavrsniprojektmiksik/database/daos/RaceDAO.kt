@@ -16,10 +16,10 @@ interface RaceDAO {
     @Query("SELECT * FROM RaceEntity WHERE race_name = :name")
     fun getByName(name: String): RaceEntity
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(race: RaceEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(race: List<RaceEntity>)
 
     @Delete
