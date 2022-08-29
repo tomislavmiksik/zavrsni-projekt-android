@@ -10,13 +10,25 @@ import android.view.Menu
 import android.view.MenuItem
 import hr.tvz.android.zavrsniprojektmiksik.ui.main.SectionsPagerAdapter
 import hr.tvz.android.zavrsniprojektmiksik.databinding.ActivityMainBinding
+import hr.tvz.android.zavrsniprojektmiksik.models.Driver
+import hr.tvz.android.zavrsniprojektmiksik.models.Race
+import hr.tvz.android.zavrsniprojektmiksik.models.Team
+import hr.tvz.android.zavrsniprojektmiksik.services.ServiceGenerator
+import hr.tvz.android.zavrsniprojektmiksik.services.ServiceInterface
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    lateinit var driverList: MutableList<Driver>
+    lateinit var teamList: MutableList<Team>
+    lateinit var raceList: MutableList<Race>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val client: ServiceInterface = ServiceGenerator().createService(
+            ServiceInterface::class.java,
+        )
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,11 +38,7 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+
     }
 }
