@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Race(
+    var id: Int,
     var race_name: String,
     var race_date: String,
     var race_location: String,
