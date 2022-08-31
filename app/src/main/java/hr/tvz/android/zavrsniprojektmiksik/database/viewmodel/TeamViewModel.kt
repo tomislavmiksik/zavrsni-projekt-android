@@ -27,12 +27,12 @@ class TeamViewModel(application: Application) : AndroidViewModel(application) {
 
 
     @JvmName("getAllTeams")
-    fun getAllRaces(): LiveData<List<TeamEntity>> {
+    fun getAllTeams(): LiveData<List<TeamEntity>> {
         return allTeams
     }
 
     @JvmName("getTeamById")
-    fun getRaceById(id: Int): TeamEntity {
+    fun getTeamById(id: Int): TeamEntity {
         return repository.getById(id)
     }
 }

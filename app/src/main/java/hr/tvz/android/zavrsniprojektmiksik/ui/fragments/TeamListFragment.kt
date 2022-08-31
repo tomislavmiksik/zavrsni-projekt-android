@@ -6,14 +6,15 @@ import android.widget.ListView
 import androidx.fragment.app.ListFragment
 import androidx.lifecycle.ViewModelProvider
 import hr.tvz.android.zavrsniprojektmiksik.R
-import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.DriverViewModel
-import hr.tvz.android.zavrsniprojektmiksik.ui.adapters.DriverListAdapter
+import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.TeamViewModel
+import hr.tvz.android.zavrsniprojektmiksik.ui.adapters.RaceListAdapter
+import hr.tvz.android.zavrsniprojektmiksik.ui.adapters.TeamListAdapter
 
-class DriversFragment : ListFragment() {
+class TeamListFragment : ListFragment() {
 
     private val STATE_ACTIVATED_POSITION = "activated_position"
     private var mActivatedPosition = ListView.INVALID_POSITION
-    private var driverViewModel = ViewModelProvider(this)[DriverViewModel::class.java]
+    private var teamViewModel : TeamViewModel? = null
 
     interface Callbacks {
         fun onItemSelected(id: Int?)
@@ -27,17 +28,18 @@ class DriversFragment : ListFragment() {
     private var mCallbacks: Callbacks = sDummyCallbacks
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        driverViewModel = ViewModelProvider(this)[DriverViewModel::class.java]
 
-        driverViewModel!!.getAllDrivers().observe(
+        super.onCreate(savedInstanceState)
+        teamViewModel = ViewModelProvider(this)[TeamViewModel::class.java]
+
+        teamViewModel!!.getAllTeams().observe(
             this
-        ) { grandPrixList ->
-            grandPrixList.map { it.driver_name }.toMutableList()
-            listAdapter = DriverListAdapter(
+        ) { teams ->
+            teams.map { it.team_name }.toMutableList()
+            listAdapter = TeamListAdapter(
                 requireActivity(),
                 R.layout.driver_card,
-                grandPrixList
+                teams
             )
         }
     }

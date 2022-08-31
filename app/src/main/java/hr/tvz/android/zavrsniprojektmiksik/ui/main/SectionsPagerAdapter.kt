@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import hr.tvz.android.zavrsniprojektmiksik.R
-import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.DriversFragment
-import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.RacesFragment
-import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.TeamsFragment
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.DriverListFragment
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.RaceListFragment
+import hr.tvz.android.zavrsniprojektmiksik.ui.fragments.TeamListFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_drivers,
@@ -19,10 +19,10 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         when (position){
-            0 -> return DriversFragment()
-            1 -> return RacesFragment()
-            2 -> return TeamsFragment()
-            else -> return DriversFragment()
+            0 -> return DriverListFragment()
+            1 -> return RaceListFragment()
+            2 -> return TeamListFragment()
+            else -> return DriverListFragment()
         }
     }
 

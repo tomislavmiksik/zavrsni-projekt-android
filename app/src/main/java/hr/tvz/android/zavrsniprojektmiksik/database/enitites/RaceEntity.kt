@@ -10,4 +10,5 @@ data class RaceEntity (
     @ColumnInfo(name = "race_name") val race_name: String,
     @ColumnInfo(name = "race_date") val race_date: String,
     @ColumnInfo(name="race_location") val race_location: String,
+    @ColumnInfo(name = "image") val image: String,
 )

@@ -12,7 +12,7 @@ import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.RaceEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.TeamEntity
 
-@Database(entities = [DriverEntity::class, RaceEntity::class, TeamEntity::class], version = 2)
+@Database(entities = [DriverEntity::class, RaceEntity::class, TeamEntity::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun driverDao(): DriverDAO
     abstract fun teamDao(): TeamDAO

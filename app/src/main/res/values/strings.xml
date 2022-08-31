@@ -8,4 +8,6 @@
     <string name="races">races</string>
     <string name="teams">teams</string>
     <string name="driver_image">driver_image</string>
+    <string name="name">Name</string>
+    <string name="position">Position</string>
 </resources>

@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.android.material.tabs.TabLayout
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.RaceEntity
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Fresco.initialize(this);
         super.onCreate(savedInstanceState)
         val client: ServiceInterface = ServiceGenerator().createService(
             ServiceInterface::class.java,
