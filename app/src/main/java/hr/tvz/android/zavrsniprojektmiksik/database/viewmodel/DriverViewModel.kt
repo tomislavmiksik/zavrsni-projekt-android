@@ -27,12 +27,12 @@ class DriverViewModel (application: Application) : AndroidViewModel(application)
 
 
     @JvmName("getAllDrivers")
-    fun getAllRaces(): LiveData<List<DriverEntity>> {
+    fun getAllDrivers(): LiveData<List<DriverEntity>> {
         return allDrivers
     }
 
     @JvmName("getDriverById")
-    fun getRaceById(id: Int): DriverEntity {
+    fun getDriverById(id: Int): DriverEntity {
         return repository.getById(id)
     }
 }

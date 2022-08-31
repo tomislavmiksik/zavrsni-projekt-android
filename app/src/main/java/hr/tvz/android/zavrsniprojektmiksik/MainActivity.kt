@@ -1,31 +1,23 @@
 package hr.tvz.android.zavrsniprojektmiksik
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.gson.Gson
-import hr.tvz.android.zavrsniprojektmiksik.database.AppDatabase
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.DriverEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.RaceEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.enitites.TeamEntity
 import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.DriverViewModel
 import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.RaceViewModel
 import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.TeamViewModel
-import hr.tvz.android.zavrsniprojektmiksik.ui.main.SectionsPagerAdapter
 import hr.tvz.android.zavrsniprojektmiksik.databinding.ActivityMainBinding
-import hr.tvz.android.zavrsniprojektmiksik.models.Driver
-import hr.tvz.android.zavrsniprojektmiksik.models.Race
-import hr.tvz.android.zavrsniprojektmiksik.models.Team
 import hr.tvz.android.zavrsniprojektmiksik.services.ServiceGenerator
 import hr.tvz.android.zavrsniprojektmiksik.services.ServiceInterface
+import hr.tvz.android.zavrsniprojektmiksik.ui.main.SectionsPagerAdapter
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +35,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        raceViewModel =ViewModelProvider(this).get(RaceViewModel::class.java)
+        raceViewModel = ViewModelProvider(this)[RaceViewModel::class.java]
+        driverViewModel = ViewModelProvider(this)[DriverViewModel::class.java]
+        teamViewModel = ViewModelProvider(this)[TeamViewModel::class.java]
 
         setContentView(binding.root)
 
