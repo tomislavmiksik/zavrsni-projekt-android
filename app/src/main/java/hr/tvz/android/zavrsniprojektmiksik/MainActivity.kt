@@ -23,9 +23,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    lateinit var raceViewModel: RaceViewModel
-    lateinit var teamViewModel: TeamViewModel
-    lateinit var driverViewModel: DriverViewModel
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
