@@ -2,21 +2,23 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list_detail"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_detail_drivers"
         tools:context=".ui.fragments.DriverListFragment"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#000000">
 
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
+            android:id="@+id/list_drivers"
             android:name="hr.tvz.android.listamiksik.ItemListFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/driver_card" />
+            tools:listitem="@layout/driver_card"
+            android:background="#000000" />
 
 
 </LinearLayout>

@@ -1,11 +1,11 @@
 package hr.tvz.android.zavrsniprojektmiksik.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import androidx.fragment.app.ListFragment
 import androidx.lifecycle.ViewModelProvider
-import com.facebook.drawee.backends.pipeline.Fresco
 import hr.tvz.android.zavrsniprojektmiksik.R
 import hr.tvz.android.zavrsniprojektmiksik.database.viewmodel.DriverViewModel
 import hr.tvz.android.zavrsniprojektmiksik.ui.adapters.DriverListAdapter
@@ -17,12 +17,12 @@ class DriverListFragment : ListFragment() {
     private var driverViewModel : DriverViewModel? = null
 
     interface Callbacks {
-        fun onItemSelected(id: Int?)
+        fun onItemSelected(id: Int)
     }
 
     private val sDummyCallbacks: Callbacks =
         object : Callbacks {
-            override fun onItemSelected(id: Int?) {}
+            override fun onItemSelected(id: Int) {}
         }
 
     private var mCallbacks: Callbacks = sDummyCallbacks
@@ -42,6 +42,22 @@ class DriverListFragment : ListFragment() {
                 grandPrixList
             )
         }
+    }
+
+    override fun onListItemClick(l: ListView, v: View, position: Int, id: Long) {
+        super.onListItemClick(l, v, position, id)
+        print("onListItemClick")
+
+        driverViewModel = ViewModelProvider(this)[DriverViewModel::class.java]
+
+        driverViewModel!!.getAllDrivers().observe(
+            this,
+            androidx.lifecycle.Observer { driver ->
+                mCallbacks.onItemSelected(driver[position].id)
+            }
+        )
+
+
     }
 
 
@@ -70,5 +86,34 @@ class DriverListFragment : ListFragment() {
             outState.putInt(STATE_ACTIVATED_POSITION, mActivatedPosition)
         }
     }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        // Activities containing this fragment must implement its callbacks
+        check(context is Callbacks) { "Activity must implement fragment's callbacks." }
+
+        mCallbacks = context
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        mCallbacks = sDummyCallbacks
+    }
+
+    companion object {
+
+        // TODO: Customize parameter argument names
+        const val ARG_COLUMN_COUNT = "column-count"
+
+        // TODO: Customize parameter initialization
+        @JvmStatic
+        fun newInstance(columnCount: Int) =
+            DriverListFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(ARG_COLUMN_COUNT, columnCount)
+                }
+            }
+    }
+
 
 }

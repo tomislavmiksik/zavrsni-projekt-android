@@ -18,11 +18,11 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        when (position){
-            0 -> return DriverListFragment()
-            1 -> return RaceListFragment()
-            2 -> return TeamListFragment()
-            else -> return DriverListFragment()
+        return when (position){
+            0 -> DriverListFragment()
+            1 -> RaceListFragment()
+            2 -> TeamListFragment()
+            else -> throw IllegalStateException()
         }
     }
 

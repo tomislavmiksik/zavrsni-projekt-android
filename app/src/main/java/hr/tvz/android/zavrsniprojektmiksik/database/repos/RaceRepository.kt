@@ -47,25 +47,6 @@ class RaceRepository (application: Application){
 
 
     fun getAll(): LiveData<List<RaceEntity>> {
-
-
-        val races: Call<MutableList<RaceEntity>> = client.fetchRaces()
-
-        races.enqueue(object : retrofit2.Callback<MutableList<RaceEntity>> {
-            override fun onResponse(
-                call: Call<MutableList<RaceEntity>>,
-                response: Response<MutableList<RaceEntity>>
-            ) {
-                for (item in response.body()!!) {
-                    insert(item)
-                }
-            }
-
-            override fun onFailure(call: Call<MutableList<RaceEntity>>, t: Throwable) {
-            }
-
-        })
-
         return allRaces
     }
 

@@ -10,4 +10,11 @@
     <string name="driver_image">driver_image</string>
     <string name="name">Name</string>
     <string name="position">Position</string>
+    <string name="openwebsite">openWebsite</string>
+    <string name="nationality">nationality</string>
+    <string name="drivers">drivers</string>
+    <string name="back">back</string>
+    <string name="position_points">Position/points</string>
+    <string name="nationality_text">Nationality:</string>
+    <string name="team_text">Team:</string>
 </resources>

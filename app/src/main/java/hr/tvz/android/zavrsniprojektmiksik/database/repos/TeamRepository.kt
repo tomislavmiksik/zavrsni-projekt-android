@@ -1,7 +1,6 @@
 package hr.tvz.android.zavrsniprojektmiksik.database.repos
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import hr.tvz.android.zavrsniprojektmiksik.database.AppDatabase
 import hr.tvz.android.zavrsniprojektmiksik.database.daos.TeamDAO
@@ -47,23 +46,6 @@ class TeamRepository (application: Application) {
 
 
     fun getAll(): LiveData<List<TeamEntity>> {
-        val teams : Call<MutableList<TeamEntity>> = client.fetchConstructorsStandings()
-
-
-        teams.enqueue(object : retrofit2.Callback<MutableList<TeamEntity>> {
-            override fun onResponse(
-                call: Call<MutableList<TeamEntity>>,
-                response: Response<MutableList<TeamEntity>>
-            ) {
-                for (item in response.body()!!) {
-                    insert(item)
-                }
-
-            }
-
-            override fun onFailure(call: Call<MutableList<TeamEntity>>, t: Throwable) {
-            }
-        })
         return allTeams
     }
 
